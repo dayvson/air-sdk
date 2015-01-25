@@ -1,0 +1,36 @@
+{
+  "name": "air-sdk",
+  "version": "16.0.0-272-8",
+  "description": "AIR SDK for nodejs",
+  "main": "lib/air.js",
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "keywords": [
+    "air",
+    "flex",
+    "flash",
+    "flashplayer"
+  ],
+  "author": {
+    "name": "Maxwell Da Silva",
+    "email": "dayvson@gmail.com"
+  },
+  "bin": {
+    "mxmlc": "./bin/mxmlc",
+    "compc": "./bin/compc",
+    "fdb": "./bin/fdb",
+    "optimizer": "./bin/optimizer",
+    "swcdepends": "./bin/swcdepends"
+  },
+  "main": "lib/air",
+  "airSdk": {
+    "url": "http://airdownload.adobe.com/air/mac/download/latest/AIRSDK_Compiler.tbz2"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "playerglobal-latest": "^0.1.6",
+    "request": "^2.51.0",
+    "shelljs": "^0.3.0"
+  }
+}
