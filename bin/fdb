@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var path = require('path');
+var spawn = require('child_process').spawn;
+var fdbPath = require('../lib/air').bin.fdb;
+var args = process.argv.slice(2);
+var cp = spawn(fdbPath, args);
+cp.stdout.pipe(process.stdout);
+cp.stderr.pipe(process.stderr);
+cp.on('exit', process.exit);
+
+process.on('SIGTERM', function() {
+  cp.kill('SIGTERM');
+  process.exit(1);
+});

@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var path = require('path');
+var spawn = require('child_process').spawn;
+var swcdependsPath = require('../lib/air').bin.swcdepends;
+var args = process.argv.slice(2);
+var cp = spawn(swcdependsPath, args);
+cp.stdout.pipe(process.stdout);
+cp.stderr.pipe(process.stderr);
+cp.on('exit', process.exit);
+
+process.on('SIGTERM', function() {
+  cp.kill('SIGTERM');
+  process.exit(1);
+});
