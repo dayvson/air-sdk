@@ -2,9 +2,10 @@
   "name": "air-sdk",
   "version": "16.0.0-272-8",
   "description": "AIR SDK for nodejs",
-  "main": "lib/air.js",
+  "main": "lib/air",
   "scripts": {
-    "postinstall": "node install.js"
+    "postinstall": "node install.js",
+    "test": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha --default-excludes=./test --reporter=html"
   },
   "keywords": [
     "air",
@@ -23,7 +24,6 @@
     "optimizer": "./bin/optimizer",
     "swcdepends": "./bin/swcdepends"
   },
-  "main": "lib/air",
   "airSdk": {
     "url": "http://airdownload.adobe.com/air/mac/download/latest/AIRSDK_Compiler.tbz2"
   },
@@ -32,5 +32,11 @@
     "playerglobal-latest": "^0.1.6",
     "request": "^2.51.0",
     "shelljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "istanbul": "^0.3.5",
+    "jshint": "^2.6.0",
+    "mocha": "^2.1.0"
   }
 }
