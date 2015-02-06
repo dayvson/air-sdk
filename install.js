@@ -15,24 +15,20 @@ console.log("Downloading Adobe AIR SDK, please wait...");
 request(downloadUrl, function (error, response, body) {
   console.log("AIR SDK download complete!");
   shell.mkdir(libFolder);
-  var extract = shell.exec('tar zxf ' + tmpLocation + ' -C ' + libFolder);
-  if(extract.code === 0 ){
-    shell.rm(tmpLocation);
-    console.log("File extracted...");
-    console.log("Installing playerglobal frameworks...");
-    airSdk.refresh();
-    playerGlobal.install(frameworksDir, function(err) {
-      if (err) {
-        console.error('Failed to install the latest "playerglobal.swc" library collection!', err);
-      } else {
-        console.log('Successfully installed the latest "playerglobal.swc" library collection.');
-      }
-      process.exit(err ? 1 : 0);
-    });
-  }else{
-    console.error("Error trying File extracted...");
-    process.exit(1);
-  }
+  console.log("Preparing to extract file...");
+  var extract = shell.exec('tar -zxf ' + tmpLocation + ' -C ' + libFolder);
+  console.log("File extracted...");
+  shell.rm(tmpLocation);
+  console.log("Installing all playerglobal frameworks...");
+  airSdk.update();
+  playerGlobal.install(frameworksDir, function(err) {
+    if (err) {
+      console.error('Failed to install the latest "playerglobal.swc" library collection!', err);
+    } else {
+      console.log('Successfully installed the latest "playerglobal.swc" library collection.');
+    }
+    process.exit(err ? 1 : 0);
+  });
 }).pipe(fs.createWriteStream(tmpLocation));
 
 process.on('uncaughtException', function(err) {
