@@ -1,5 +1,6 @@
 # air-sdk
 [![Code Climate](https://codeclimate.com/github/dayvson/air-sdk/badges/gpa.svg)](https://codeclimate.com/github/dayvson/air-sdk) [![Test Coverage](https://codeclimate.com/github/dayvson/air-sdk/badges/coverage.svg)](https://codeclimate.com/github/dayvson/air-sdk)
+
 A NPM wrapper for the Adobe AIR SDK.
 The idea it to provide simple access to AIR_SDK binaries using node. The package has been set up to fetch the Adobe AIR SDK and run `mxmlc, fdb, compc, optimizer, swcdepends, etc` for MacOS, Linux based platforms and Windows. 
 
