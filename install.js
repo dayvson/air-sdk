@@ -8,8 +8,9 @@ var shell = require('shelljs');
 var downloadUrl = packageMetadata.airSdk.url;
 var name = 'AIRSDK_Compiler.tbz2';
 var libFolder = 'lib/AIR_SDK';
-var tmpLocation = path.join(__dirname, 'lib', name)
+var tmpLocation = path.join(__dirname, 'lib', name);
 var frameworksDir = path.join(__dirname, libFolder);
+var pathFlexFrameworksSWC = path.join(__dirname, libFolder, 'frameworks/libs/');
 console.log("Downloading Adobe AIR SDK, please wait...");
 
 request(downloadUrl, function (error, response, body) {
@@ -27,6 +28,7 @@ request(downloadUrl, function (error, response, body) {
     } else {
       console.log('Successfully installed the latest "playerglobal.swc" library collection.');
     }
+    shell.cp("extra/framework.swc", pathFlexFrameworksSWC);
     process.exit(err ? 1 : 0);
   });
 }).pipe(fs.createWriteStream(tmpLocation));
