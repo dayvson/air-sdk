@@ -17,7 +17,7 @@ request(downloadUrl, function (error, response, body) {
   console.log("AIR SDK download complete!");
   shell.mkdir(libFolder);
   console.log("Preparing to extract file...");
-  var extract = shell.exec('tar -zxf ' + tmpLocation + ' -C ' + libFolder);
+  var extract = shell.exec('tar -xjf ' + tmpLocation + ' -C ' + libFolder);
   console.log("File extracted...");
   shell.rm(tmpLocation);
   console.log("Installing all playerglobal frameworks...");
