@@ -25,7 +25,7 @@
     "swcdepends": "./bin/swcdepends"
   },
   "airSdk": {
-    "url": "https://airdownload.adobe.com/air/mac/download/latest/AIRSDK_Compiler.tbz2"
+    "url": "http://airdownload.adobe.com/air/mac/download/latest/AIRSDK_Compiler.tbz2"
   },
   "license": "MIT",
   "dependencies": {
