@@ -13,6 +13,11 @@ var frameworksDir = path.join(__dirname, libFolder);
 var pathFlexFrameworksSWC = path.join(__dirname, libFolder, 'frameworks/libs/');
 console.log("Downloading Adobe AIR SDK, please wait...");
 
+if(fs.statSync(libFolder)){
+  console.log("AIR SDK was already downloaded");
+  process.exit(0);
+}
+
 request(downloadUrl, function (error, response, body) {
   if(error || response.statusCode !== 200){
     console.error("Could not download AIR SDK!");
