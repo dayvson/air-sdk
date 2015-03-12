@@ -11,6 +11,7 @@ var libFolder = 'lib/AIR_SDK';
 var tmpLocation = path.join(__dirname, 'lib', name);
 var frameworksDir = path.join(__dirname, libFolder);
 var pathFlexFrameworksSWC = path.join(__dirname, libFolder, 'frameworks/libs/');
+var progress = require('request-progress');
 
 fs.stat(libFolder, function(err, stats) {
   if(!err) {
@@ -19,7 +20,7 @@ fs.stat(libFolder, function(err, stats) {
   }
 
   console.log("Downloading Adobe AIR SDK, please wait...");
-  request(downloadUrl, function (error, response, body) {
+  progress(request(downloadUrl, function (error, response, body) {
     if(error || response.statusCode !== 200){
       console.error("Could not download AIR SDK!");
       process.exit(1);
@@ -42,7 +43,11 @@ fs.stat(libFolder, function(err, stats) {
       shell.cp("extra/framework.swc", pathFlexFrameworksSWC);
       process.exit(err ? 1 : 0);
     });
-  }).pipe(fs.createWriteStream(tmpLocation));
+  }))
+  .on('progress', function (state) {
+    process.stdout.write('Downloading progress: ' + state.percent + "% \r");
+  })
+  .pipe(fs.createWriteStream(tmpLocation));
 
   process.on('uncaughtException', function(err) {
     console.error('FATAL! Uncaught exception: ' + err);
