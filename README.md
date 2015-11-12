@@ -8,8 +8,8 @@ The idea it to provide simple access to AIR_SDK binaries using node. The package
 ## Building and Installing
 
 ```shell
-npm install air-sdk 
-npm install -g air-sdk #installing globally
+npm install node-air-sdk 
+npm install -g -node-air-sdk #installing globally
 ```
 
 Download the source and run the tests. 
