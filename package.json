@@ -1,6 +1,6 @@
 {
   "name": "node-air-sdk",
-  "version": "16.0.0-272-16",
+  "version": "0.1.0",
   "description": "AIR SDK for nodejs",
   "main": "lib/air",
   "scripts": {
