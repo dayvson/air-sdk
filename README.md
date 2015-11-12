@@ -1,6 +1,7 @@
 # node-air-sdk
 
 forked from air-sdk
+update to support "adt" and "adl" command
 
 A NPM wrapper for the Adobe AIR SDK.
 The idea it to provide simple access to AIR_SDK binaries using node. The package has been set up to fetch the Adobe AIR SDK and run `mxmlc, fdb, compc, optimizer, swcdepends, etc` for MacOS, Linux based platforms and Windows. 
