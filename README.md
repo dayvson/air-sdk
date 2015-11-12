@@ -21,7 +21,7 @@ npm test
 
 ## Usage for (Mac, Linux)
 ```js
-var airSdk = require('air-sdk');
+var airSdk = require('node-air-sdk');
 var mxmlc = airSdk.bin.mxmlc;
 var src = '/fixtures/ErrorApp.as');
 var childArgs = [mxmlc, '+configname=air', src];
