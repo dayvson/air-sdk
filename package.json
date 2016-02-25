@@ -4,7 +4,7 @@
   "description": "AIR SDK for nodejs",
   "main": "lib/air",
   "scripts": {
-    "postinstall": "node install.js",
+    "postinstall": "node install.js --max-old-space-size=4096",
     "test": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha --default-excludes=./test --reporter=html"
   },
   "keywords": [
