@@ -1,10 +1,10 @@
 {
   "name": "node-air-sdk",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "AIR SDK for nodejs",
   "main": "lib/air",
   "scripts": {
-    "postinstall": "node install.js --max-old-space-size=4096",
+    "postinstall": "node --max-old-space-size=4096 install.js",
     "test": "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha --default-excludes=./test --reporter=html"
   },
   "keywords": [
