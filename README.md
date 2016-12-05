@@ -1,5 +1,7 @@
-# air-sdk
-[![Code Climate](https://codeclimate.com/github/dayvson/air-sdk/badges/gpa.svg)](https://codeclimate.com/github/dayvson/air-sdk) [![Test Coverage](https://codeclimate.com/github/dayvson/air-sdk/badges/coverage.svg)](https://codeclimate.com/github/dayvson/air-sdk)
+# node-air-sdk
+
+forked from air-sdk
+update to support "adt" and "adl" command
 
 A NPM wrapper for the Adobe AIR SDK.
 The idea it to provide simple access to AIR_SDK binaries using node. The package has been set up to fetch the Adobe AIR SDK and run `mxmlc, fdb, compc, optimizer, swcdepends, etc` for MacOS, Linux based platforms and Windows. 
@@ -7,8 +9,8 @@ The idea it to provide simple access to AIR_SDK binaries using node. The package
 ## Building and Installing
 
 ```shell
-npm install air-sdk 
-npm install -g air-sdk #installing globally
+npm install node-air-sdk 
+npm install -g -node-air-sdk #installing globally
 ```
 
 Download the source and run the tests. 
@@ -20,7 +22,7 @@ npm test
 
 ## Usage for (Mac, Linux)
 ```js
-var airSdk = require('air-sdk');
+var airSdk = require('node-air-sdk');
 var mxmlc = airSdk.bin.mxmlc;
 var src = '/fixtures/ErrorApp.as');
 var childArgs = [mxmlc, '+configname=air', src];
